@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queen Isatu Timi Bangura | 58 Years of Grace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <audio id="bgMusic" src="song.mp4" loop></audio>
+    <div id="music-control" class="music-note">🎵</div>
+
+    <div id="envelope-stage" class="stage">
+        <div class="envelope-wrapper" id="envelope">
+            <div class="envelope">
+                <div class="flap"></div>
+                <div class="letter">
+                    <h2>To Our Queen</h2>
+                    <p>Isatu Timi Bangura</p>
+                    <small>(Tap to Open your Surprise)</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="splash-stage" class="stage" style="display: none;">
+        <canvas id="particle-canvas"></canvas>
+        <div class="golden-frame">
+            <img id="splash-img" src="photo1.jpg" alt="Mom">
+        </div>
+        <h1 class="splash-text">Happy Birthday to the Best Mom in the World</h1>
+    </div>
+
+    <div id="home-stage" style="display: none;">
+        <header class="main-header">
+            <h1 class="reveal">Isatu Timi Bangura</h1>
+            <p class="subtitle reveal">February 22, 1968</p>
+            
+            <div class="timer-box reveal">
+                <p>Gracing the world for:</p>
+                <div id="live-timer">Calculating...</div>
+            </div>
+        </header>
+
+        <section class="content-grid">
+            <div class="reveal-box scroll-item">
+                <div class="media"><img src="photo2.jpg"></div>
+                <div class="text-card">
+                    <p class="bible">"She is clothed with strength and dignity; she can laugh at the days to come."</p>
+                    <p class="ref">Proverbs 31:25</p>
+                </div>
+            </div>
+
+            <div class="reveal-box scroll-item reverse">
+                <div class="media"><video src="merry.mkv" controls></video></div>
+                <div class="text-card">
+                    <p class="quote">"A mother’s love is the heartbeat of the home."</p>
+                </div>
+            </div>
+
+            <div class="reveal-box scroll-item">
+                <div class="media"><img src="photo3.jpg"></div>
+                <div class="text-card">
+                    <p class="bible">"Her children arise and call her blessed."</p>
+                    <p class="ref">Proverbs 31:28</p>
+                </div>
+            </div>
+
+            <div class="reveal-box scroll-item reverse">
+                <div class="media"><img src="photo4.jpg"></div>
+                <div class="text-card">
+                    <p class="quote">"You aren't just a woman of God; you are a testament to His grace."</p>
+                </div>
+            </div>
+
+            </section>
+
+        <footer>
+            <p>Happy 58th Birthday, Mom. You are loved beyond words.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
