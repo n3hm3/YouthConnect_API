@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Mom 💛</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --gold:#D4AF37; --gold-dark:#AA8222; --gold-light:#F9E596;
+      --silver:#C0C0C0;
+      --bg:#FBFAF7;
+      --card:rgba(255,255,255,0.78);
+      --accent-rgb:212,175,55;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:'Montserrat', sans-serif;
+      background:var(--bg);
+      color:#2f2f2f;
+      overflow-x:hidden;
+    }
+
+    #bg-particles{
+      position:fixed; inset:0; width:100vw; height:100vh;
+      z-index:0; pointer-events:none;
+    }
+
+    body::after{
+      content:"";
+      position:fixed; inset:0;
+      background: radial-gradient(circle at center, transparent 60%, rgba(0,0,0,0.12));
+      pointer-events:none; z-index:2;
+    }
+
+    .wrap{
+      position:relative; z-index:3;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 90px 18px;
+    }
+
+    .card{
+      width:min(980px, 100%);
+      background: var(--card);
+      border: 1px solid rgba(192,192,192,0.35);
+      border-radius: 22px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.06);
+      overflow:hidden;
+    }
+
+    .top{
+      padding: 44px 38px 28px 38px;
+      text-align:center;
+      background: linear-gradient(135deg, rgba(212,175,55,0.14), rgba(255,255,255,0.0));
+    }
+
+    h1{
+      font-family:'Playfair Display', serif;
+      margin:0;
+      font-size: 3rem;
+      color: var(--gold-dark);
+      line-height:1.1;
+    }
+
+    .sub{
+      margin-top: 12px;
+      font-size: 1.08rem;
+      color:#555;
+      line-height:1.7;
+      max-width: 760px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .divider{
+      width: 120px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(192,192,192,0.25), rgba(212,175,55,0.95), rgba(192,192,192,0.25));
+      margin: 22px auto 0 auto;
+    }
+
+    .content{
+      padding: 34px 34px 10px 34px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 26px;
+    }
+
+    .box{
+      padding: 26px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(192,192,192,0.30);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.04);
+    }
+
+    .big{
+      font-family:'Playfair Display', serif;
+      font-size: 1.7rem;
+      color:#2b2b2b;
+      line-height:1.3;
+      margin:0 0 14px 0;
+    }
+
+    p{
+      margin:0 0 14px 0;
+      line-height:1.9;
+      color:#3f3f3f;
+      font-size: 1.06rem;
+    }
+
+    .quote{
+      border-left: 5px solid rgba(212,175,55,0.85);
+      padding-left: 16px;
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color:#444;
+      margin-top: 18px;
+    }
+
+    .badge{
+      display:inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(212,175,55,0.12);
+      border: 1px solid rgba(192,192,192,0.35);
+      color: var(--gold-dark);
+      font-weight: 800;
+      letter-spacing: .08em;
+      font-size: .75rem;
+      margin-bottom: 12px;
+    }
+
+    .bible{
+      font-family:'Playfair Display', serif;
+      font-size: 1.55rem;
+      line-height:1.6;
+      color:#222;
+      margin-top: 10px;
+    }
+
+    .ref{
+      margin-top: 12px;
+      font-weight: 800;
+      color: var(--gold-dark);
+    }
+
+    .bottom{
+      padding: 18px 34px 36px 34px;
+      display:flex;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-block;
+      padding: 14px 20px;
+      border-radius: 999px;
+      text-decoration:none;
+      font-weight: 800;
+      color:#fff;
+      background: linear-gradient(135deg, rgba(212,175,55,0.95), rgba(170,130,34,1));
+      box-shadow: 0 16px 40px rgba(212,175,55,0.20);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover{ transform: translateY(-2px); box-shadow: 0 24px 60px rgba(212,175,55,0.26); }
+
+    .sig{ color:#666; font-weight:600; }
+
+    @media (max-width: 900px){
+      h1{ font-size: 2.4rem; }
+      .content{ grid-template-columns: 1fr; padding: 26px; }
+      .top{ padding: 34px 22px 22px 22px; }
+      .bottom{ padding: 18px 26px 30px 26px; }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="bg-particles"></canvas>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="top">
+        <h1>For Our Queen 💛</h1>
+        <p class="sub">
+          Happy Birthday, Mom.<br>
+          Today we celebrate your life, your prayers, and the love you poured into us.
+        </p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="content">
+        <div class="box">
+          <p class="big">Mom, thank you.</p>
+          <p>
+            Thank you for the sacrifices people never saw.
+            Thank you for being strong on days you deserved rest.
+            Thank you for praying for us even when we didn’t understand the weight of it.
+          </p>
+
+          <p class="quote">
+            Your love built the home we stand in today.
+            Your prayers covered our lives in ways we can’t fully measure.
+          </p>
+
+          <p style="margin-bottom:0;">
+            Happy Birthday, Mom. We love you beyond words. 💛
+          </p>
+        </div>
+
+        <div class="box">
+          <div class="badge">A PRAYER</div>
+          <p>
+            May God strengthen your body, renew your joy, and surround you with peace.
+            May favor speak for you, and may your heart remain full of His love.
+            In Jesus’ name, Amen.
+          </p>
+
+          <div class="badge" style="margin-top:14px;">SCRIPTURE</div>
+          <p class="bible">
+            “The LORD bless you and keep you; the LORD make His face shine upon you
+            and be gracious to you; the LORD turn His face toward you and give you peace.”
+          </p>
+          <p class="ref">Numbers 6:24–26</p>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <a class="btn" href="index.html">Back to the Surprise 💌</a>
+        <div class="sig"> With love, Nyakeh Michelle G Kamanda</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("bg-particles");
+    const ctx = canvas.getContext("2d");
+    let particles = [];
+
+    function resize(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+
+    class P{
+      constructor(){
+        this.reset(true);
+        this.y = Math.random() * canvas.height;
+      }
+      reset(randomY=false){
+        this.x = Math.random() * canvas.width;
+        this.y = randomY ? Math.random()*canvas.height : canvas.height + Math.random()*80;
+        this.r = Math.random()*3 + 1;
+        this.vx = Math.random()*1 - .5;
+        this.vy = Math.random()*-1 - .5;
+        this.a = Math.random()*.35 + .15;
+      }
+      u(){
+        this.x += this.vx;
+        this.y += this.vy;
+        if(this.y < -20) this.reset();
+      }
+      d(){
+        ctx.fillStyle = `rgba(212,175,55,${this.a})`;
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+        ctx.fill();
+      }
+    }
+
+    function init(){
+      particles = [];
+      for(let i=0;i<110;i++) particles.push(new P());
+    }
+
+    function anim(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      for(const p of particles){ p.u(); p.d(); }
+      requestAnimationFrame(anim);
+    }
+
+    init();
+    anim();
+  </script>
+</body>
+</html>

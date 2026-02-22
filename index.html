@@ -1,87 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queen Isatu Timi Bangura | 58 Years of Grace</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Mom | Gold & Silver</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <canvas id="bg-particles"></canvas>
 
-    <audio id="bgMusic" src="song.mp4" loop></audio>
-    <div id="music-control" class="music-note">🎵</div>
+  <audio id="bgMusic" src="song.mp4" loop></audio>
+  <button id="music-control" class="music-note" aria-label="Toggle music">🎵</button>
 
-    <div id="envelope-stage" class="stage">
-        <div class="envelope-wrapper" id="envelope">
-            <div class="envelope">
-                <div class="flap"></div>
-                <div class="letter">
-                    <h2>To Our Queen</h2>
-                    <p>Isatu Timi Bangura</p>
-                    <small>(Tap to Open your Surprise)</small>
-                </div>
-            </div>
+  <!-- 1) Envelope Stage -->
+  <section id="envelope-stage" class="stage">
+    <div class="premium-envelope" id="envelope" role="button" aria-label="Open birthday card" tabindex="0">
+      <div class="flap back-flap"></div>
+
+      <div class="letter">
+        <h2 class="letter-title">To Our Queen</h2>
+        <p class="letter-name" id="mom-name-letter">Isatu Timi Bangura</p>
+      </div>
+
+      <div class="flap bottom-flap"></div>
+      <div class="flap left-flap"></div>
+      <div class="flap right-flap"></div>
+      <div class="flap top-flap"></div>
+
+      <div class="wax-seal">Tap</div>
+    </div>
+
+    <p class="hint">Tap the envelope 💌</p>
+  </section>
+
+  <!-- 2) Splash Stage -->
+  <section id="splash-stage" class="stage" style="display:none;">
+    <div class="splash-ring">
+      <img id="splash-img" src="MOM1.jpeg" alt="Mom Splash" />
+    </div>
+
+    <h1 class="splash-text" id="splash-text">Today is not just a birthday…</h1>
+    <p class="splash-subtext" id="splash-subtext">It’s a celebration of a life that blessed our family.</p>
+
+    <div class="splash-dots" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+  </section>
+
+  <!-- 3) Home Stage -->
+  <main id="home-stage" style="display:none;">
+    <header class="main-header">
+      <h1 class="reveal">
+        Happy Birthday,<br>
+        <span class="name-pop" id="mom-name">Isatu Timi Bangura</span> 👑
+      </h1>
+
+      <p class="subtitle reveal">
+        A woman of prayer, strength, and love
+      </p>
+
+      <div class="timer-box reveal">
+        <p class="timer-label">A life that has blessed the world for:</p>
+        <div id="live-timer">Calculating...</div>
+      </div>
+
+      <div id="sweet-words" aria-hidden="true"></div>
+    </header>
+
+    <section class="content-grid">
+
+      <!-- SECTION 1: MOM SOLO (MOM1..MOM14) -->
+      <section class="feature section-card reveal">
+        <div class="media-box">
+          <img id="rot-mom-solo" class="media-el" src="MOM1.jpeg" alt="Mom solo">
         </div>
-    </div>
 
-    <div id="splash-stage" class="stage" style="display: none;">
-        <canvas id="particle-canvas"></canvas>
-        <div class="golden-frame">
-            <img id="splash-img" src="photo1.jpg" alt="Mom">
+        <div class="text-card">
+          <div class="badge">SCRIPTURE</div>
+          <h2 class="section-title">A Crown of Strength</h2>
+          <div class="metal-divider"></div>
+
+          <p class="bible">
+            “She is clothed with strength and dignity;<br>
+            she can laugh at the days to come.”
+          </p>
+          <p class="ref">Proverbs 31:25</p>
+
+          <p class="body-text">
+            Mom, this is you steady in storms, kind in victory, faithful in every season.
+          </p>
         </div>
-        <h1 class="splash-text">Happy Birthday to the Best Mom in the World</h1>
-    </div>
+      </section>
 
-    <div id="home-stage" style="display: none;">
-        <header class="main-header">
-            <h1 class="reveal">Isatu Timi Bangura</h1>
-            <p class="subtitle reveal">February 22, 1968</p>
-            
-            <div class="timer-box reveal">
-                <p>Gracing the world for:</p>
-                <div id="live-timer">Calculating...</div>
-            </div>
-        </header>
+      <!-- SECTION 2: MOM + MARY (MOMANDSIS1..MOMANDSIS7) -->
+      <section class="feature section-card reveal reverse">
+        <div class="media-box">
+          <img id="rot-mom-mary" class="media-el" src="MOMANDSIS1.jpeg" alt="Mom and Mary">
+        </div>
 
-        <section class="content-grid">
-            <div class="reveal-box scroll-item">
-                <div class="media"><img src="photo2.jpg"></div>
-                <div class="text-card">
-                    <p class="bible">"She is clothed with strength and dignity; she can laugh at the days to come."</p>
-                    <p class="ref">Proverbs 31:25</p>
-                </div>
-            </div>
+        <div class="text-card">
+          <div class="badge">Mother & Daughter</div>
+          <h2 class="section-title">A Bond We Cherish</h2>
+          <div class="metal-divider"></div>
 
-            <div class="reveal-box scroll-item reverse">
-                <div class="media"><video src="merry.mkv" controls></video></div>
-                <div class="text-card">
-                    <p class="quote">"A mother’s love is the heartbeat of the home."</p>
-                </div>
-            </div>
+          <p class="body-text">
+            Some love is quiet and strong the kind you see in family.
+            Thank you for being the glue, the guidance, and the prayer behind us.
+          </p>
+        </div>
+      </section>
 
-            <div class="reveal-box scroll-item">
-                <div class="media"><img src="photo3.jpg"></div>
-                <div class="text-card">
-                    <p class="bible">"Her children arise and call her blessed."</p>
-                    <p class="ref">Proverbs 31:28</p>
-                </div>
-            </div>
+      <!-- SECTION 3: ME + MOM (MOMANDME1..MOMANDME3) -->
+      <section class="feature section-card reveal">
+        <div class="media-box">
+          <img id="rot-me-mom" class="media-el" src="MOMANDME1.jpeg" alt="Me and Mom">
+        </div>
 
-            <div class="reveal-box scroll-item reverse">
-                <div class="media"><img src="photo4.jpg"></div>
-                <div class="text-card">
-                    <p class="quote">"You aren't just a woman of God; you are a testament to His grace."</p>
-                </div>
-            </div>
+        <div class="text-card">
+          <div class="badge">FROM ME</div>
+          <h2 class="section-title">Thank You, Mom 💛</h2>
+          <div class="metal-divider"></div>
 
-            </section>
+          <p class="quote">
+            Mom, every step I take is because you stood first.<br>
+            Your prayers carried me where my strength could not.<br>
+            Today, I celebrate not just your birthday but your sacrifice.
+          </p>
+          <p class="ref">Mitchelle Namikaze</p>
+        </div>
+      </section>
 
-        <footer>
-            <p>Happy 58th Birthday, Mom. You are loved beyond words.</p>
-        </footer>
-    </div>
+      <!-- SECTION 4: FAMILY 3 (FAMILY1..FAMILY6) -->
+      <section class="feature section-card reveal reverse">
+        <div class="media-box">
+          <img id="rot-family3" class="media-el" src="FAMILY1.jpeg" alt="Family">
+        </div>
 
-    <script src="script.js"></script>
+        <div class="text-card">
+          <div class="badge">Family</div>
+          <h2 class="section-title">Our Family, Our Joy</h2>
+          <div class="metal-divider"></div>
+
+          <p class="body-text">
+            Thank you for every prayer, every lesson, and every time you chose love even when it was hard.
+            We honor you today and always.
+          </p>
+        </div>
+      </section>
+
+      <!-- VIDEO -->
+      <section class="feature section-card reveal">
+        <div class="media-box media-video">
+          <video class="media-el" id="mom-video" src="VID1.mp4" controls playsinline></video>
+        </div>
+
+        <div class="text-card">
+          <div class="badge">MEMORY</div>
+          <h2 class="section-title">A Moment We Can Replay </h2>
+          <div class="metal-divider"></div>
+          <p class="body-text">
+            A little memory because you deserve moments that last.
+  
+          </p>
+        </div>
+      </section>
+
+      <!-- BUTTON -->
+      <section class="feature section-card reveal">
+        <div class="text-card center-card full">
+          <h2 class="section-title">One More Message 💌</h2>
+          <div class="metal-divider center"></div>
+          <p class="body-text">
+            I wrote you a special message on the next page.
+          </p>
+          <a href="message.html" class="gold-btn">Open My Message to You 💛</a>
+        </div>
+      </section>
+
+    </section>
+
+    <footer>
+      <p>
+        Happy Birthday, <span id="mom-name-footer">Isatu Timi Bangura</span> 💛<br>
+        <span class="footer-blessing">May God continue to bless and keep you.</span>
+      </p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
